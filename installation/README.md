@@ -49,7 +49,7 @@ sudo gedit /etc/systemd/system/zookeeper.service
 +	[Service]
 +	Type=simple
 +	User=kafka
-+	ExecStart=/home/kafka/kafka/bin/zookeeper-server-start.sh /home/kafka/kafka/config/+zookeeper.properties
++	ExecStart=/home/kafka/kafka/bin/zookeeper-server-start.sh /home/kafka/kafka/config/zookeeper.properties
 +	ExecStop=/home/kafka/kafka/bin/zookeeper-server-stop.sh
 +	Restart=on-abnormal
 +	
