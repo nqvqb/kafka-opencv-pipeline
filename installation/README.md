@@ -19,7 +19,10 @@ sudo useradd kafka -m
 sudo adduser kafka sudo
 # set bash as the default shell for the kafka user
 sudo usermod --shell /bin/bash kafka
+```
 ##### Download
+```sh
+su -l kafka
 mkdir ~/Downloads
 curl "https://www.apache.org/dist/kafka/2.1.1/kafka_2.11-2.1.1.tgz" -o ~/Downloads/kafka.tgz
 mkdir ~/kafka && cd ~/kafka
@@ -84,7 +87,8 @@ sudo rm /etc/systemd/system/zookeeper.service
 # remove kafka user 
 sudo su -
 # deregister user
-userdel kafka
+sudo userdel kafka
+sudo userdel -r kafka
 # remove all kafka home
 sudo rm -r /home/kafka
 sudo reboot
