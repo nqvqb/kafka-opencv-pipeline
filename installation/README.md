@@ -15,6 +15,8 @@
 # create user
 # login as non root another user, then create user with home dir
 sudo useradd kafka -m
+# add passworkd
+sudo passwd kafka
 # add kafka user to sudo
 sudo adduser kafka sudo
 # set bash as the default shell for the kafka user
