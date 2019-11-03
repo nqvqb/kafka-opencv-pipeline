@@ -82,10 +82,18 @@ sudo systemctl enable kafka
 ```
 ##### (optional) disable service if want to remove kafka
 ```sh
+udo systemctl is-active kafka
+sudo systemctl stop kafka
 sudo systemctl disable kafka
-sudo systemctl disable zookeeper
 sudo rm /etc/systemd/system/kafka.service
+sudo systemctl daemon-reload
+
+udo systemctl is-active zookeeper
+sudo systemctl stop zookeeper
+sudo systemctl disable zookeeper
 sudo rm /etc/systemd/system/zookeeper.service
+sudo systemctl daemon-reload
+
 # remove kafka user 
 sudo su -
 # deregister user
