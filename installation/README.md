@@ -82,7 +82,7 @@ sudo systemctl enable kafka
 ```
 ##### (optional) disable service if want to remove kafka
 ```sh
-udo systemctl is-active kafka
+sudo systemctl is-active kafka
 sudo systemctl stop kafka
 sudo systemctl disable kafka
 sudo rm /etc/systemd/system/kafka.service
