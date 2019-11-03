@@ -88,7 +88,7 @@ sudo systemctl disable kafka
 sudo rm /etc/systemd/system/kafka.service
 sudo systemctl daemon-reload
 
-udo systemctl is-active zookeeper
+sudo systemctl is-active zookeeper
 sudo systemctl stop zookeeper
 sudo systemctl disable zookeeper
 sudo rm /etc/systemd/system/zookeeper.service
