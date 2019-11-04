@@ -70,6 +70,14 @@ pip install kafka-python
 /home/kafka/kafka/bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic testTopic
 source ~/kafka-opencv-pipeline/venv/kafka/bin/activate
 ```
+start simple consumer and producer
+```sh
+cd ~/kafka-opencv-pipeline
+python3 test_producer.py
 
+# open another terminial
+source ~/kafka-opencv-pipeline/venv/kafka/bin/activate
+python3 test_consumer.py
+```
 
 
