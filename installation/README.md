@@ -123,6 +123,12 @@ echo "Hello, World" | /home/kafka/kafka/bin/kafka-console-producer.sh --broker-l
 # publish the topic again
 echo "Hello, World" | ~/kafka/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic testTopic > /dev/null
 ```
+##### Running in localhost
+sometimes kafka dident work properly in localhost, uncomment the 2 lines in server.properties:
+```sh
+listeners=PLAINTEXT://localhost:9092
+advertised.listeners=PLAINTEXT://localhost:9092
+```
 ##### Delete a topic
 Apache Kafka never deletes a topic marked for deletion if that topic has producers still producing to it, or consumers still consuming from it, or messages left hanging out in the queue. 
 One way to force it is to restart Kafka. 
@@ -155,10 +161,24 @@ source ~/kafka-opencv-pipeline/venv/kafka/bin/activate
 pip install kafka-python
 ```
 
-
-
-
-
+##### Remove all Java
+```sh
+# remove the links, alternatives 
+sudo update-alternatives --remove "java"
+sudo update-alternatives --remove "javac"
+sudo update-alternatives --remove "javaws"
+# remove packages
+sudo rm -r /usr/lib/jvm/jdk[version]
+# uninstall openjdk
+# remove jdk only
+sudo apt-get remove openjdk*
+# remove jdk along with dependencies
+sudo apt-get remove --auto-remove openjdk*
+# remove jdk with configs
+sudo apt-get purge openjdk*
+# remove configs, dependencies
+sudo apt-get purge --auto-remove openjdk*
+```
 
 
 
