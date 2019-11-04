@@ -153,9 +153,6 @@ One way to force it is to restart Kafka.
 /home/kafka/kafka/bin/kafka-topics.sh --zookeeper localhost:2181 --delete --topic testTopic
 ```
 
-
-
-
 ##### Remove all Java
 ```sh
 # remove the links, alternatives 
