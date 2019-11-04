@@ -27,6 +27,7 @@ sudo usermod --shell /bin/bash kafka
 su -l kafka
 mkdir ~/Downloads
 curl "https://www.apache.org/dist/kafka/2.1.1/kafka_2.11-2.1.1.tgz" -o ~/Downloads/kafka.tgz
+curl "https://www.apache.org/dist/kafka/2.3.1/kafka_2.11-2.3.1.tgz" -o ~/Downloads/kafka.tgz
 mkdir ~/kafka && cd ~/kafka
 tar -xvzf ~/Downloads/kafka.tgz --strip 1
 # install OpenJDK8
