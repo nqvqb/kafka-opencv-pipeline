@@ -1,16 +1,22 @@
 # Kafka and OpenCV Image processing pipeline
+
+
 ## Install Apache Kafka on Ubuntu18
+
 ##### References
 1. https://www.digitalocean.com/community/tutorials/how-to-install-apache-kafka-on-ubuntu-18-04
 2. https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-an-apache-zookeeper-cluster-on-ubuntu-18-04
 3. https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04#installing-specific-versions-of-openjdk
 4. https://stackoverflow.com/questions/33537950/how-to-delete-a-topic-in-apache-kafka
+
 ##### Prerequisites
 1. ubuntu18
 2. at least 4GB of RAM
 3. OpenJDK8
 4. Zookeeper
+
 ##### Setup Kafka user
+As kafka is running as a system service and via network ports, it is better to separate it as different user in case kafka is compomised
 ```sh
 # create user
 # login as non root another user, then create user with home dir
@@ -23,6 +29,7 @@ sudo adduser kafka sudo
 sudo usermod --shell /bin/bash kafka
 ```
 ##### Download
+Download kafaka and install java sdk 8
 ```sh
 su -l kafka
 mkdir ~/Downloads
@@ -36,7 +43,10 @@ sudo apt install openjdk-8-jdk
 java -version
 ```
 ##### Config kafka server
-	sudo gedit ~/kafka/config/server.properties
+
+```sh
+sudo gedit ~/kafka/config/server.properties
+```
 ```diff
 +	delete.topic.enable = true
 ```
@@ -141,24 +151,6 @@ One way to force it is to restart Kafka.
 # delete one 
 ~/kafka/bin/kafka-topics.sh --zookeeper localhost:2181 --delete --topic testTopic
 /home/kafka/kafka/bin/kafka-topics.sh --zookeeper localhost:2181 --delete --topic testTopic
-```
-
-
-##### kafka-python
-```sh
-# create a topic
-/home/kafka/kafka/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic testTopic
-# check if the topic is created
-/home/kafka/kafka/bin/kafka-topics.sh --list --zookeeper lhost:2181
-# describe the topic 
-/home/kafka/kafka/bin/kafka-topics.sh --describe --zookeeper localhost:2181 --topic testTopic
-# returns:
-# Topic:testTopic	PartitionCount:1	ReplicationFactor:1	Configs:
-# 	Topic: testTopic	Partition: 0	Leader: 0	Replicas: 0	Isr: 0
-
-virtualenv --system-site-packages -p python3 ~/kafka-opencv-pipeline/venv/kafka
-source ~/kafka-opencv-pipeline/venv/kafka/bin/activate
-pip install kafka-python
 ```
 
 ##### Remove all Java
